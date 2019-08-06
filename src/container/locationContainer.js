@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { Component} from 'react'
 
-class LocationContainer extends PureComponent {
-  state = {}
+class LocationContainer extends Component {
+  state = {
+
+  }
+
+  componentDidMount(){
+    fetch("http://localhost:9000/location")
+    .then( resp => resp.json())
+    .then( locations => {
+      console.log(locations)
+      this.setState({
+        locations: locations
+      })
+    })
+  }
 
   render(){
     return (
       <div>
-        Location Container
+        {this.state.locations}
       </div>
     )
   }
