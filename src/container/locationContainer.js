@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import Location from '../component/location.js'
+import * as Const from "../const.js"
 
 class LocationContainer extends Component {
   state = {
@@ -7,7 +8,7 @@ class LocationContainer extends Component {
   }
 
   componentDidMount(){
-    fetch("http://localhost:9000/location")
+    fetch(`${Const.ENDPOINT}/location`)
     .then( resp => resp.json())
     .then( locations => {
       console.log(locations)
