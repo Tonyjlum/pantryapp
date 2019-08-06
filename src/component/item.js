@@ -8,7 +8,7 @@ class Item extends PureComponent {
   render(){
     return (
       <div>
-        Item Container
+        Item comp
       </div>
     )
   }

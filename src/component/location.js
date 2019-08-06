@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { Component} from 'react'
 
-class Location extends PureComponent {
+class Location extends Component {
   state = {}
 
-  render(){
+  render(props){
     return (
       <div>
-        Item Container
+        {this.props.location.name}
       </div>
     )
   }

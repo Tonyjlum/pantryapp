@@ -1,8 +1,9 @@
 import React, { Component} from 'react'
+import Location from '../component/location.js'
 
 class LocationContainer extends Component {
   state = {
-
+    locations: []
   }
 
   componentDidMount(){
@@ -16,10 +17,17 @@ class LocationContainer extends Component {
     })
   }
 
+
+  render_location = () => {
+    return (this.state.locations.map( location =>{
+      return (<Location key={location.id} location={location} />)
+    }))
+  }
+
   render(){
     return (
       <div>
-        {this.state.locations}
+        {this.render_location()}
       </div>
     )
   }
