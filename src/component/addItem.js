@@ -7,19 +7,19 @@ class AddItem extends Component {
     name: "",
     quantity: 0,
     locations: ["t1","t2"],
-    fill: null
+    currentlocation: null,
   }
 
-  // handleChange = (e) => {
-  //   console.log(e.target.id)
-  //   this.setState({
-  //     [e.taget.id]: e.target.value
-  //   }, function () { console.log(this.state)})
-  // }
+  handleChange = (e) => {
+    console.log(e.target.id)
+    this.setState({
+      [e.target.id]: e.target.value
+    }, function () { console.log(this.state)})
+  }
 
   makeOptions = () => {
     return this.state.locations.map( loc => {
-      return <option key={loc}>{loc}</option>
+      return <option key={loc} id="currentlocation">{loc}</option>
     })
   }
 
@@ -28,10 +28,13 @@ class AddItem extends Component {
     .then( resp => resp.json())
     .then( locations => {
       this.setState({
-        locations: locations.map(loc => loc.name)
+        locations: locations.map(loc => loc.name),
+        currentlocation: locations[0].name
       })
     })
   }
+
+  //set up redux to handle returned item and update store
 
 
   render(){
@@ -39,16 +42,13 @@ class AddItem extends Component {
       <div>
       <form onChange={this.handleChange}>
         <label className="form-label" >Name</label>
-        <input type= "text" id="name" required/>
-
+        <input type= "text" id="name" value={this.state.name}required/>
         <label className="form-label" id="quantity">Quantity</label>
-        <input type= "number" required/>
-
-        <label className="form-label" id="fill">Location</label>
-        <select>
+        <input type= "number" id="quantity" required/>
+        <label className="form-label" >Location</label>
+        <select id="currentlocation">
           {this.makeOptions()}
         </select>
-
         <button className="form-label ">Add</button>
       </form>
       </div>
