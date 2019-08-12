@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component} from 'react'
 
-class Item extends PureComponent {
+class Item extends Component {
   state = {}
 
 

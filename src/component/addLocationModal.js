@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { Component} from 'react'
 
-class AddLocationModal extends PureComponent {
-  state = {}
+class AddLocationModal extends Component {
+  state = {
+  }
+
+
 
 
 
   render(){
     return (
       <div>
-        AddLocationModal comp
+
       </div>
     )
   }

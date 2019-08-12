@@ -27,7 +27,7 @@ class LocationContainer extends Component {
 
   render(){
     return (
-      <div>
+      <div className="location-container">
         {this.render_location()}
       </div>
     )
