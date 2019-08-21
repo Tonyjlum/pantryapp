@@ -2,20 +2,36 @@ import React, { Component} from 'react'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import * as Const from "../const.js"
 
+const RESETSTATE = {
+  name: "", quantity: 0, locations: [], currentlocation: "",
+}
+
 class AddItem extends Component {
-  state = {
-    name: "",
-    quantity: 0,
-    locations: ["t1","t2"],
-    currentlocation: null,
-  }
+  state = RESETSTATE
 
   handleChange = (e) => {
-    console.log(e.target.id)
     this.setState({
       [e.target.id]: e.target.value
     }, function () { console.log(this.state)})
   }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    fetch(`${Const.ENDPOINT}/item`,{
+      method: 'POST',
+      headers:{
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: this.state.name,
+        quantity: this.state.quantity,
+        location: this.state.currentlocation
+      })
+    })
+  }
+  //reset state to const after sussessful sub, add a toast to let uset know item added.
+  //set up redux to handle returned item and update store
 
   makeOptions = () => {
     return this.state.locations.map( loc => {
@@ -34,13 +50,12 @@ class AddItem extends Component {
     })
   }
 
-  //set up redux to handle returned item and update store
 
 
   render(){
     return (
       <div>
-      <form onChange={this.handleChange}>
+      <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <label className="form-label" >Name</label>
         <input type= "text" id="name" value={this.state.name}required/>
         <label className="form-label" id="quantity">Quantity</label>
