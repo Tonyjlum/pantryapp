@@ -6,14 +6,18 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-const reducer = (state = {}, action) => {
+const reducer = (state = {currentlocation: 1}, action) => {
   switch(action.type) {
-    // case "ADD_EVENTS":
-    //   return {...state, events: action.payload}
+    case "UPDATE_CURRENT_LOCATION":
+      return {...state, currentlocation: action.payload}
   }
 }
 const store = createStore(reducer)
 
+store.subscribe( () => {
+  console.log(`the new state is`, store.getState())
+  console.log(`----------------`)
+})
 
 ReactDOM.render(
   <Provider store={store}>
