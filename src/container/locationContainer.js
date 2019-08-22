@@ -11,7 +11,6 @@ class LocationContainer extends Component {
     fetch(`${Const.ENDPOINT}/location`)
     .then( resp => resp.json())
     .then( locations => {
-      console.log(locations)
       this.setState({
         locations: locations
       })

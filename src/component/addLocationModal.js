@@ -5,9 +5,6 @@ class AddLocationModal extends Component {
   }
 
 
-
-
-
   render(){
     return (
       <div>

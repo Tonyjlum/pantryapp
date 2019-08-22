@@ -21,15 +21,17 @@ class Location extends Component {
   }
 }
 
-const mapStateToProps = (state) =>{
-  return {state}
-}
+// const mapStateToProps = (state) =>{
+//   return {state}
+// }
 
 const mapDispatchToProps = {
-  addLocationToStore: (current_location) => ({type:"UPDATE_CURRENT_LOCATION", payload: current_location})
+  addLocationToStore: (current_location) => ({
+    type:"UPDATE_CURRENT_LOCATION", payload: current_location
+  })
 }
 
 
 
 // export default Location
-export default connect(mapStateToProps, mapDispatchToProps)(Location)
+export default connect(null, mapDispatchToProps)(Location)

@@ -18,10 +18,10 @@ function App() {
 
 // export default App;
 const mapDispatchToProps = {
-  addLoginAccountToStore: (account) => ({type: "ADD_LOGIN_ACCOUNT_TO_STORE", payload: account}),
-  markSponsorInStore: () => ({
-    type:"LOGGED_IN_AS_SPONSOR"
-  })
+  // addLoginAccountToStore: (account) => ({type: "ADD_LOGIN_ACCOUNT_TO_STORE", payload: account}),
+  // markSponsorInStore: () => ({
+  //   type:"LOGGED_IN_AS_SPONSOR"
+  // })
 }
 
 export default connect(null, mapDispatchToProps)(App);
