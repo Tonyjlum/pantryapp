@@ -1,12 +1,17 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
+import * as Const from "../const.js"
 
 class Location extends Component {
   state = {}
 
   handleLocationClick = (location) => {
     console.log(location.id)
-    this.props.addLocationToStore(location.id)
+    const locationId = location.id
+    this.props.addLocationToStore(locationId)
+    fetch(`${Const.ENDPOINT}/location/${locationId}`)
+    .then(resp => resp.json())
+    .then(locationObj => this.props.addCurrentItemsToStore(locationObj.items))
   }
 
 
@@ -26,8 +31,11 @@ class Location extends Component {
 // }
 
 const mapDispatchToProps = {
-  addLocationToStore: (current_location) => ({
-    type:"UPDATE_CURRENT_LOCATION", payload: current_location
+  addLocationToStore: (currentLocation) => ({
+    type:"UPDATE_CURRENT_LOCATION", payload: currentLocation
+  }),
+  addCurrentItemsToStore: (currentItems) => ({
+    type:"UPDATE_CURRENT_ITEMS", payload: currentItems
   })
 }
 

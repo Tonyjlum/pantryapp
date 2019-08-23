@@ -6,15 +6,6 @@ import * as Const from "../const.js"
 class ItemContainer extends Component {
 
 
-  componentDidMount(){
-    fetch(`${Const.ENDPOINT}/item`)
-    .then( resp => resp.json())
-    .then( items => this.props.addAllItemsToStore(items))
-  }
-
-  //show items based on the store location state.
-
-
   render(){
     return (
       <div className="item-container">

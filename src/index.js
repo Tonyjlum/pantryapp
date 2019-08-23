@@ -10,8 +10,8 @@ const reducer = (state = {currentLocation: 1}, action) => {
   switch(action.type) {
     case "UPDATE_CURRENT_LOCATION":
       return {...state, currentLocation: action.payload}
-    case "ADD_ALL_ITEMS_TO_STORE":
-      return {...state, allItems: action.payload}
+    case "UPDATE_CURRENT_ITEMS":
+      return {...state, CurrentItems: action.payload}
   }
 }
 const store = createStore(reducer)
