@@ -3,10 +3,8 @@ import { connect } from 'react-redux'
 import * as Const from "../const.js"
 
 class Location extends Component {
-  state = {}
 
   handleLocationClick = (location) => {
-    console.log(location.id)
     const locationId = location.id
     this.props.addLocationToStore(locationId)
     fetch(`${Const.ENDPOINT}/location/${locationId}`)
