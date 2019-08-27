@@ -1,10 +1,12 @@
 import React, { Component} from 'react'
+import QuantityChanger from "./quantityChanger.js"
 
 class Item extends Component {
   render(){
     return (
-      <div>
+      <div className= "items-box">
         {this.props.name}
+        <QuantityChanger quantity={this.props.quantity}/>
       </div>
     )
   }

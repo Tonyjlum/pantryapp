@@ -12,7 +12,7 @@ class AddItem extends Component {
   handleChange = (e) => {
     this.setState({
       [e.target.id]: e.target.value
-    }, function () { console.log(this.state)})
+    })
   }
 
   handleSubmit = (e) => {
@@ -28,6 +28,9 @@ class AddItem extends Component {
         quantity: this.state.quantity,
         location: this.state.currentlocation
       })
+    })
+    this.setState({
+        name: "", quantity: "", currentlocation: ""
     })
   }
   //reset state to const after sussessful sub, add a toast to let uset know item added.

@@ -12,7 +12,7 @@ class ItemContainer extends Component {
 
   populateCurrentItems = () => {
     return this.props.items.map( item => {
-      return <Item key={item.id} name={item.name}/>
+      return <Item key={item.id} name={item.name} quantity={item.quantity}/>
     })
     console.log("poping")
   }
