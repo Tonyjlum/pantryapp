@@ -4,11 +4,13 @@ class QuantityChanger extends Component {
   state = {
   }
 
-
   render(){
     return (
-      <div>
+      <div className="quantityChanger">
+        <button> - </button>
         {this.props.quantity}
+        <button> + </button>
+
       </div>
     )
   }
