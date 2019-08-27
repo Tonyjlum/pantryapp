@@ -2,7 +2,6 @@ import React, { Component} from 'react'
 import AddItem from "../component/addItem.js"
 import Item from "../component/item.js"
 import { connect } from 'react-redux'
-import * as Const from "../const.js"
 
 class ItemContainer extends Component {
   state = {
@@ -12,9 +11,8 @@ class ItemContainer extends Component {
 
   populateCurrentItems = () => {
     return this.props.items.map( item => {
-      return <Item key={item.id} name={item.name} quantity={item.quantity}/>
+      return <Item key={item.id} name={item.name} quantity={item.quantity} id={item.id} />
     })
-    console.log("poping")
   }
 
   render(){

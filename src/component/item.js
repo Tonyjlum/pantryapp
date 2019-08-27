@@ -6,7 +6,7 @@ class Item extends Component {
     return (
       <div className= "items-box">
         {this.props.name}
-        <QuantityChanger quantity={this.props.quantity}/>
+        <QuantityChanger quantity={this.props.quantity} id= {this.props.id}/>
       </div>
     )
   }
