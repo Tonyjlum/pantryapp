@@ -57,7 +57,7 @@ class AddItem extends Component {
 
   render(){
     return (
-      <div>
+      <div id="add-item-form">
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <label className="form-label" >Name</label>
         <input type= "text" id="name" value={this.state.name}required/>

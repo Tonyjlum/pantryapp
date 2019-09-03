@@ -46,10 +46,6 @@
   width: 79%;
   float: right;
 }
-/* * {
-  border-style: dotted;
-  border-width:  1px;
-} */
 
 .nav-bar{
   margin-bottom: 1%;
@@ -61,4 +57,31 @@
 .form-label {
    margin-left: 1%;
    margin-right: 0.5%;
+}
+
+.items-box {
+  border-bottom: 5px solid lightgrey;
+  border-left: 5px solid lightgrey;
+  border-width: 1px;
+  margin-bottom: 25px;
+  padding: 15px;
+}
+
+#add-item-form {
+  border-bottom: 2px solid black;
+  margin-bottom: 25px;
+}
+
+.quantityChanger {
+  float: right;
+}
+
+/* .item-container{
+  overflow-y: scroll;
+  height: 77.93%;
+  overflow-x: hidden;
+} */
+
+button {
+  margin: 10px
 }

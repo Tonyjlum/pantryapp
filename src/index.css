@@ -13,19 +13,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.items-box{
-  border-bottom: 5px dotted;
-  border-left: 5px dotted;
-  border-width: 1px;
-  margin-bottom: 25px;
-  padding: 15px;
-}
-
-.quantityChanger{
-  float: right;
-
-}
-button {
-  margin: 10px
-}
