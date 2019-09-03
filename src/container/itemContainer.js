@@ -33,9 +33,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  addAllItemsToStore: (all_items) => ({
-    type:"ADD_ALL_ITEMS_TO_STORE", payload: all_items
-  })
+  // addAllItemsToStore: (all_items) => ({
+  //   type:"ADD_ALL_ITEMS_TO_STORE", payload: all_items
+  // })
 
 }
 

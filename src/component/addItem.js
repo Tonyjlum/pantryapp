@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import * as Const from "../const.js"
+import { connect } from 'react-redux'
 
 const RESETSTATE = {
   name: "", quantity: 0, locations: [], currentlocation: "",
@@ -13,6 +14,10 @@ class AddItem extends Component {
     this.setState({
       [e.target.id]: e.target.value
     })
+  }
+
+  handleMapOfNewItem = (allitem) => {
+
   }
 
   handleSubmit = (e) => {
@@ -29,8 +34,16 @@ class AddItem extends Component {
         location: this.state.currentlocation
       })
     })
+    .then(response => response.json())
+    .then( newitem => {
+
+
+    })
+
+    // set the new added item to redux
+
     this.setState({
-        name: "", quantity: "", currentlocation: ""
+        name: "", quantity: "0"
     })
   }
   //reset state to const after sussessful sub, add a toast to let uset know item added.
@@ -75,4 +88,18 @@ class AddItem extends Component {
 
 }
 
-export default AddItem
+const mapStateToProps = (state) => {
+  return {
+    items: state.currentItems
+  }
+}
+
+const mapDispatchToProps = {
+  addAllItemsToStore: (all_items) => ({
+    type:"ADD_ALL_ITEMS_TO_STORE", payload: all_items
+  })
+
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddItem)
