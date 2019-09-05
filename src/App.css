@@ -66,13 +66,21 @@
   margin-bottom: 25px;
   padding: 15px;
 }
+.locaiton-box {
+  border: 5px solid lightgrey;
+  border-width: 3px;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 25px;
+  text-align: center;
+}
 
 #add-item-form {
   border-bottom: 2px solid black;
   margin-bottom: 25px;
 }
 
-.quantityChanger {
+.quantity-changer {
   float: right;
 }
 
@@ -83,5 +91,6 @@
 } */
 
 button {
-  margin: 10px
+  margin-left: 10px;
+  margin-right: 10px;
 }

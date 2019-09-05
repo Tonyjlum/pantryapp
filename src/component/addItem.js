@@ -88,6 +88,8 @@ class AddItem extends Component {
 
 }
 
+//read items and map over to return new item.
+
 const mapStateToProps = (state) => {
   return {
     items: state.currentItems
@@ -95,9 +97,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  addAllItemsToStore: (all_items) => ({
-    type:"ADD_ALL_ITEMS_TO_STORE", payload: all_items
-  })
+  // addAllItemsToStore: (all_items) => ({
+  //   type:"ADD_ALL_ITEMS_TO_STORE", payload: all_items
+  // })
 
 }
 

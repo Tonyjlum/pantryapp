@@ -12,13 +12,20 @@ class Location extends Component {
     .then(locationObj => this.props.addCurrentItemsToStore(locationObj.items))
   }
 
+  pStyle = {
+    fontSize: '15px',
+    textAlign: 'center'
+  };
+
 
   render(props){
     return (
-      <div onClick={ () => this.handleLocationClick(this.props.location)}>
-        {<br/>}
-        {this.props.location.name}
-        {<br/>}
+      <div
+        className="locaiton-box"
+        onClick={ () => this.handleLocationClick(this.props.location)}>
+        <div>
+          {this.props.location.name}
+        </div>
       </div>
     )
   }
