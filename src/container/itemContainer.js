@@ -9,10 +9,15 @@ class ItemContainer extends Component {
     currentItems: this.props.items
   }
 
+  //select items that are not at 0 count.
   populateCurrentItems = () => {
-    return this.props.items.map( item => {
+    return this.props.items.sort((a,b) => a.name.localeCompare(b.name)).map( item => {
       return <Item key={item.id} name={item.name} quantity={item.quantity} id={item.id} />
     })
+  }
+
+  populateCurrentItemsSorted = () => {
+
   }
 
   render(){
