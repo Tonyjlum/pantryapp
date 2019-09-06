@@ -34,24 +34,20 @@ class AddItem extends Component {
         location: this.state.currentlocation
       })
     })
-    .then(response => response.json())
-    .then( newitem => {
-
-
+    .then( response => response.json())
+    .then(item => {
+      if (item.location_id == this.props.currentLocation) {
+        this.props.updateCurrentListWithNewItem([...this.props.items, item])
+      }
     })
-
-    // set the new added item to redux
-
     this.setState({
-        name: "", quantity: "0"
+        name: "", quantity: 0
     })
   }
-  //reset state to const after sussessful sub, add a toast to let uset know item added.
-  //set up redux to handle returned item and update store
 
   makeOptions = () => {
     return this.state.locations.map( loc => {
-      return <option key={loc} id="currentlocation">{loc}</option>
+      return <option key={loc.id} id="currentlocation">{loc.name}</option>
     })
   }
 
@@ -60,8 +56,8 @@ class AddItem extends Component {
     .then( resp => resp.json())
     .then( locations => {
       this.setState({
-        locations: locations.map(loc => loc.name),
-        currentlocation: locations[0].name
+        locations: locations.map(loc => loc),
+        currentlocation: locations[0].id
       })
     })
   }
@@ -88,19 +84,21 @@ class AddItem extends Component {
 
 }
 
-//read items and map over to return new item.
-
 const mapStateToProps = (state) => {
   return {
-    items: state.currentItems
+    items: state.currentItems,
+    currentLocation: state.currentLocation
   }
 }
 
 const mapDispatchToProps = {
+  //update currentItems object?
   // addAllItemsToStore: (all_items) => ({
   //   type:"ADD_ALL_ITEMS_TO_STORE", payload: all_items
   // })
-
+  updateCurrentListWithNewItem: (new_list) => ({
+    type:"UPDATE_CURRENT_ITEMS", payload: new_list
+  })
 }
 
 

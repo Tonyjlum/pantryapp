@@ -90,6 +90,14 @@
   overflow-x: hidden;
 } */
 
+.current-location {
+  color: skyblue;
+  font-weight: bold;
+
+}
+.blank {
+}
+
 button {
   margin-left: 10px;
   margin-right: 10px;

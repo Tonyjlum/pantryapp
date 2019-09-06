@@ -12,18 +12,14 @@ class Location extends Component {
     .then(locationObj => this.props.addCurrentItemsToStore(locationObj.items))
   }
 
-  pStyle = {
-    fontSize: '15px',
-    textAlign: 'center'
-  };
-
+//change Cart to current location from redux
 
   render(props){
     return (
       <div
-        className="locaiton-box"
+        className={"locaiton-box"}
         onClick={ () => this.handleLocationClick(this.props.location)}>
-        <div>
+        <div className={this.props.location.id == this.props.state.currentLocation ? 'current-location' : 'location-boc'}>
           {this.props.location.name}
         </div>
       </div>
@@ -31,9 +27,9 @@ class Location extends Component {
   }
 }
 
-// const mapStateToProps = (state) =>{
-//   return {state}
-// }
+const mapStateToProps = (state) =>{
+  return {state}
+}
 
 const mapDispatchToProps = {
   addLocationToStore: (currentLocation) => ({
@@ -47,4 +43,4 @@ const mapDispatchToProps = {
 
 
 // export default Location
-export default connect(null, mapDispatchToProps)(Location)
+export default connect(mapStateToProps, mapDispatchToProps)(Location)
