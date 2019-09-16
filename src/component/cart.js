@@ -5,10 +5,11 @@ import * as Const from "../const.js"
 class Cart extends Component {
 //cart can delete items as well as move to a location(item bought)
 
-  render(props){
+  render(){
     return (
-      <div>
-
+      <div className= "items-box">
+        {this.props.name}
+        
       </div>
     )
   }
@@ -20,7 +21,7 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = {
   //new items added back to locations should update redux
-  
+
   // addLocationToStore: (currentLocation) => ({
   //   type:"UPDATE_CURRENT_LOCATION", payload: currentLocation
   // }),
