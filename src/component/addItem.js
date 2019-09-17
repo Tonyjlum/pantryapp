@@ -47,7 +47,9 @@ class AddItem extends Component {
   }
 
   makeOptions = () => {
-    return this.state.locations.map( loc => {
+    return this.state.locations
+    .filter( loc => loc.name !== "Cart")
+    .map( loc => {
       return <option key={loc.id} id="currentlocation">{loc.name}</option>
     })
   }
@@ -93,10 +95,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-  //update currentItems object?
-  // addAllItemsToStore: (all_items) => ({
-  //   type:"ADD_ALL_ITEMS_TO_STORE", payload: all_items
-  // })
   updateCurrentListWithNewItem: (new_list) => ({
     type:"UPDATE_CURRENT_ITEMS", payload: new_list
   })

@@ -17,7 +17,6 @@ class Location extends Component {
   render(props){
     return (
       <div
-        className={"locaiton-box"}
         onClick={ () => this.handleLocationClick(this.props.location)}>
         <div className={this.props.location.id == this.props.state.currentLocation ? 'current-location' : 'location-box'}>
           {this.props.location.name}

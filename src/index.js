@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-const reducer = (state = {currentLocation: 1, currentItems: [], cart: []}, action) => {
+const reducer = (state = {currentLocation: 1, currentItems: [], locations: [], cart: []}, action) => {
   switch(action.type) {
     case "UPDATE_CURRENT_LOCATION":
       return {...state, currentLocation: action.payload}
@@ -16,6 +16,8 @@ const reducer = (state = {currentLocation: 1, currentItems: [], cart: []}, actio
       return {...state, cart: action.payload}
     case "ADDED_TO_CART":
       return {...state, cart: [...state.cart, action.payload]}
+    case "ADD_LOCATIONS_TO_STORE":
+      return {...state, locations: action.payload}
     default:
       return state
   }

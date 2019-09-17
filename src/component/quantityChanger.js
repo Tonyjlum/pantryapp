@@ -17,7 +17,7 @@ class QuantityChanger extends Component {
         </div>
       )
     } else {
-      return <div className= "quantity-changer">Item Added To Cart!</div>
+      return <span>  was added to the cart.</span>
     }
   }
 
@@ -30,7 +30,7 @@ class QuantityChanger extends Component {
   }
 
   updateQuantity = (id) => {
-    console.log(this.state.quantity, "at the fetch")
+    this.props.updateQuantity(this.state.quantity)
     fetch(`${Const.ENDPOINT}/item/${id}`, {
       method: "PATCH",
       headers: {
@@ -47,9 +47,9 @@ class QuantityChanger extends Component {
 
   render(){
     return (
-      <div className="quantity-changer">
+      <span >
         {this.handleRender()}
-      </div>
+      </span>
     )
   }
 }
