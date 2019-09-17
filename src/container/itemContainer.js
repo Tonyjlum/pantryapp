@@ -15,9 +15,7 @@ class ItemContainer extends Component {
   componentDidMount(){
     fetch(`${Const.ENDPOINT}/location/1`)
     .then(resp => resp.json())
-    .then(location => this.setState({
-      cartItems: location.items
-    }))
+    .then(cart => this.props.addCartFetchToStore(cart.items))
   }
 
 
@@ -31,7 +29,7 @@ class ItemContainer extends Component {
   }
 
   populateCart = () => {
-    return this.state.cartItems.
+    return this.props.cart.
     sort((a,b) => a.name.localeCompare(b.name))
     .filter( item => item.quantity < 1)
     .map( item => {
@@ -53,15 +51,15 @@ class ItemContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     items: state.currentItems,
-    currentLocation: state.currentLocation
+    currentLocation: state.currentLocation,
+    cart: state.cart
   }
 }
 
 const mapDispatchToProps = {
-  // addAllItemsToStore: (all_items) => ({
-  //   type:"ADD_ALL_ITEMS_TO_STORE", payload: all_items
-  // })
-
+  addCartFetchToStore: (cartItems) => ({
+    type:"INITIAL_CART", payload: cartItems
+  })
 }
 
 

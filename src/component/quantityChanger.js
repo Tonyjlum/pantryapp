@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import * as Const from "../const.js"
+import { connect } from 'react-redux'
 
 class QuantityChanger extends Component {
   state = {
@@ -11,7 +12,7 @@ class QuantityChanger extends Component {
       return(
         <div className = "quantity-changer">
           <button onClick={() => this.handleDec(this.props.id)} > - </button>
-            {this.state.quantity}
+              {this.state.quantity}
           <button onClick={() => this.handleInc(this.props.id)}> + </button>
         </div>
       )
@@ -40,6 +41,8 @@ class QuantityChanger extends Component {
         quantity: this.state.quantity
       })
     })
+    .then(item => item.json())
+    .then(item => this.props.addCartFetchToStore(item))
   }
 
   render(){
@@ -49,7 +52,13 @@ class QuantityChanger extends Component {
       </div>
     )
   }
-
 }
 
-export default QuantityChanger
+const mapDispatchToProps = {
+  addCartFetchToStore: (cartItems) => ({
+    type:"ADDED_TO_CART", payload: cartItems
+  })
+}
+
+
+export default connect(null, mapDispatchToProps)(QuantityChanger)

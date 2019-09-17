@@ -8,7 +8,10 @@ const RESETSTATE = {
 }
 
 class AddItem extends Component {
-  state = RESETSTATE
+  state = {
+    name: "", quantity: 0, locations: [], currentlocation: "",
+  }
+
 
   handleChange = (e) => {
     this.setState({
@@ -40,9 +43,7 @@ class AddItem extends Component {
         this.props.updateCurrentListWithNewItem([...this.props.items, item])
       }
     })
-    this.setState({
-        name: "", quantity: 0
-    })
+    .then( something => this.setState({name: "", quantity: 1}, () => console.log(this.state)))
   }
 
   makeOptions = () => {
@@ -71,7 +72,7 @@ class AddItem extends Component {
         <label className="form-label" >Name</label>
         <input type= "text" id="name" value={this.state.name}required/>
         <label className="form-label" id="quantity">Quantity</label>
-        <input type= "number" id="quantity" required/>
+        <input type= "number" id="quantity" value={this.state.quantity} required />
         <label className="form-label" >Location</label>
         <select id="currentlocation">
           {this.makeOptions()}
