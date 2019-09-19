@@ -25,11 +25,14 @@ class Cart extends Component {
         "Accept" : "application/json"
       }
     })
+    .then( this.props.updateCartAfterDelete(this.handleUpdateStoreAfterDelete(id)))
     .then( something => this.setState({deleted: true}))
   }
 
-  handleRender = () => {
-    return this.state.deleted ? "Gone" : "Still kickin it"
+  handleUpdateStoreAfterDelete = (id) => {
+    return this.props.cart.filter( item => {
+      return item.id !== id
+    })
   }
 
   removeButton = () => {
@@ -51,10 +54,13 @@ class Cart extends Component {
 }
 
 const mapStateToProps = (state) =>{
-  return {state}
+  return {cart: state.cart}
 }
 
 const mapDispatchToProps = {
+  updateCartAfterDelete: (items) =>({
+    type: "UPDATE_CART_AFTER_DELETE", payload: items
+  })
 }
 
 

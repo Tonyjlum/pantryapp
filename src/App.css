@@ -104,15 +104,20 @@
 
 .current-location {
   font-weight: bold;
-  border: 5px solid lightgrey;
+  border: 5px solid skyblue;
   border-width: 3px;
   margin: 5px;
   padding: 15px;
   border-radius: 25px;
   text-align: center;
   background-color: skyblue
-
 }
+
+.location-box:hover{
+  font-weight: bold;
+  border: 3px solid skyblue;
+}
+
 .blank {
 }
 
@@ -127,5 +132,5 @@ button {
 
 .populated-items {
   overflow-y: scroll;
-  height: 80vh;
+  height: 75vh;
 }
