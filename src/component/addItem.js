@@ -3,13 +3,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import * as Const from "../const.js"
 import { connect } from 'react-redux'
 
-const RESETSTATE = {
-  name: "", quantity: 0, locations: [], currentlocation: "",
-}
-
 class AddItem extends Component {
   state = {
-    name: "", quantity: 0, locations: [], currentlocation: "",
+    name: "", quantity: 1, currentlocation: "",
   }
 
 
@@ -17,10 +13,6 @@ class AddItem extends Component {
     this.setState({
       [e.target.id]: e.target.value
     })
-  }
-
-  handleMapOfNewItem = (allitem) => {
-
   }
 
   handleSubmit = (e) => {
@@ -47,21 +39,10 @@ class AddItem extends Component {
   }
 
   makeOptions = () => {
-    return this.state.locations
+    return this.props.locations
     .filter( loc => loc.name !== "Cart")
     .map( loc => {
       return <option key={loc.id} id="currentlocation">{loc.name}</option>
-    })
-  }
-
-  componentDidMount(){
-    fetch(`${Const.ENDPOINT}/location`)
-    .then( resp => resp.json())
-    .then( locations => {
-      this.setState({
-        locations: locations.map(loc => loc),
-        currentlocation: locations[0].id
-      })
     })
   }
 
@@ -90,7 +71,8 @@ class AddItem extends Component {
 const mapStateToProps = (state) => {
   return {
     items: state.currentItems,
-    currentLocation: state.currentLocation
+    currentLocation: state.currentLocation,
+    locations: state.locations
   }
 }
 
