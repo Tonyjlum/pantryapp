@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import * as Const from "../const.js"
+import MoveItemSelectButton from './moveItemSelectButton.js'
 
 class Cart extends Component {
 //cart can delete items as well as move to a location(item bought)
@@ -34,9 +35,7 @@ class Cart extends Component {
   removeButton = () => {
     return this.state.deleted ? " has been removed from Cart." :  <button className="remove-cart-button"onClick = {() => this.handleDelete(this.props.id)}>Remove!?</button>
   }
-  moveToLocation = () => {
 
-  }
   //render move form and button, both will be gone if any one is done.
 
 
@@ -45,6 +44,7 @@ class Cart extends Component {
       <div className= {this.state.deleted ? "low-items-box" : "items-box"}>
         {this.props.name}
         {this.removeButton()}
+        <MoveItemSelectButton/>
       </div>
     )
   }
@@ -55,14 +55,6 @@ const mapStateToProps = (state) =>{
 }
 
 const mapDispatchToProps = {
-  //new items added back to locations should update redux
-
-  // addLocationToStore: (currentLocation) => ({
-  //   type:"UPDATE_CURRENT_LOCATION", payload: currentLocation
-  // }),
-  // addCurrentItemsToStore: (currentItems) => ({
-  //   type:"UPDATE_CURRENT_ITEMS", payload: currentItems
-  // })
 }
 
 

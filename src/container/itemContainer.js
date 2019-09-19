@@ -42,7 +42,7 @@ class ItemContainer extends Component {
       <div className="item-container">
         <AddItem />
         <div className="populated-items">
-        {this.props.currentLocation <= 1 ? this.populateCart() : this.populateCurrentItems()}
+        {this.props.currentLocation == 1 ? this.populateCart() : this.populateCurrentItems()}
         </div>
       </div>
     )

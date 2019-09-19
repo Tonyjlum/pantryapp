@@ -1,25 +1,21 @@
 import React, { Component} from 'react'
 import Location from '../component/location.js'
 import * as Const from "../const.js"
+import { connect } from 'react-redux'
 
 class LocationContainer extends Component {
-  state = {
-    locations: []
-  }
 
   componentDidMount(){
     fetch(`${Const.ENDPOINT}/location`)
     .then( resp => resp.json())
     .then( locations => {
-      this.setState({
-        locations: locations
-      })
+      this.props.addLocationsToStore(locations)
     })
   }
 
 
   render_location = () => {
-    return (this.state.locations.map( location =>{
+    return (this.props.locations.map( location =>{
       return (<Location key={location.id} location={location} />)
     }))
   }
@@ -34,4 +30,19 @@ class LocationContainer extends Component {
 
 }
 
-export default LocationContainer
+const mapStateToProps = (state) => {
+  return {
+    locations: state.locations
+  }
+}
+
+const mapDispatchToProps = {
+  addLocationsToStore: (locations) => ({
+    type:"ADD_LOCATIONS_TO_STORE", payload: locations
+  })
+}
+
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(LocationContainer)
