@@ -102,10 +102,6 @@
 
 }
 
-.quantity-changer {
-  float: right;
-}
-
 .current-location {
   color: skyblue;
   font-weight: bold;
@@ -125,7 +121,7 @@ button {
   margin-right: 10px;
 }
 
-.remove-cart-button {
+.float-right{
   float: right;
 }
 

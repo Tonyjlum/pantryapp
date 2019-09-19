@@ -45,8 +45,6 @@ class AddItem extends Component {
     })
   }
 
-
-
   render(){
     return (
       <div id="add-item-form">

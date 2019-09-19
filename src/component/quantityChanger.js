@@ -10,9 +10,9 @@ class QuantityChanger extends Component {
   handleRender = () => {
     if (this.state.quantity > 0) {
       return(
-        <div className = "quantity-changer">
+        <div className = "float-right">
           <button onClick={() => this.handleDec(this.props.id)} > - </button>
-              {this.state.quantity}
+              {this.state.quantity > 9 ? this.state.quantity : "0" + this.state.quantity}
           <button onClick={() => this.handleInc(this.props.id)}> + </button>
         </div>
       )

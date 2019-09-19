@@ -33,7 +33,7 @@ class Cart extends Component {
   }
 
   removeButton = () => {
-    return this.state.deleted ? " has been removed from Cart." :  <button className="remove-cart-button"onClick = {() => this.handleDelete(this.props.id)}>Remove!?</button>
+    return this.state.deleted ? `${this.props.name} has been removed from Cart.` :  <button onClick = {() => this.handleDelete(this.props.id)}>X</button>
   }
 
   //render move form and button, both will be gone if any one is done.
@@ -42,9 +42,9 @@ class Cart extends Component {
   render(){
     return (
       <div className= {this.state.deleted ? "low-items-box" : "items-box"}>
-        {this.props.name}
-        {this.removeButton()}
-        <MoveItemSelectButton/>
+      {this.removeButton()}
+        {!this.state.deleted && this.props.name}
+        {!this.state.deleted && <MoveItemSelectButton/>}
       </div>
     )
   }

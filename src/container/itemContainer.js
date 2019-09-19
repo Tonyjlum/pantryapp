@@ -39,7 +39,7 @@ class ItemContainer extends Component {
 
   render(){
     return (
-      <div className="item-container">
+      <div className="item-container float-right">
         <AddItem />
         <div className="populated-items">
         {this.props.currentLocation == 1 ? this.populateCart() : this.populateCurrentItems()}

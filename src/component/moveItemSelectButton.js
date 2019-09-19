@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 class MoveItemSelectButton extends Component {
 
 
-  // makeOptions = () => {
-  //   return this.props.currentLocation
-  //   .filter( loc => loc.name !== "Cart")
-  //   .map( loc => {
-  //     return <option key={loc.id} id="currentlocation">{loc.name}</option>
-  //   })
-  // }
+  makeOptions = () => {
+    return this.props.locations
+    .filter( loc => loc.name !== "Cart")
+    .map( loc => {
+      return <option key={loc.id} id="currentlocation">{loc.name}</option>
+    })
+  }
 
 
 
@@ -18,8 +18,9 @@ class MoveItemSelectButton extends Component {
       console.log(this.props)
     return (
       <span >
-        <form className = "remove-cart-button" >
+        <form className = "float-right" >
           <select>
+          {this.makeOptions()}
           </select>
           <input type="submit" value= "move"/>
         </form>
