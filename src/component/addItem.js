@@ -5,9 +5,8 @@ import { connect } from 'react-redux'
 
 class AddItem extends Component {
   state = {
-    name: "", quantity: 1, currentlocation: "",
+    name: "", quantity: 1, currentlocation: "Pantry One",
   }
-
 
   handleChange = (e) => {
     this.setState({
@@ -35,7 +34,7 @@ class AddItem extends Component {
         this.props.updateCurrentListWithNewItem([...this.props.items, item])
       }
     })
-    .then( something => this.setState({name: "", quantity: 1}, () => console.log(this.state)))
+    .then( something => this.setState({name: "", quantity: 1}))
   }
 
   makeOptions = () => {
