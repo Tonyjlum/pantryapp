@@ -50,9 +50,10 @@ class AddItem extends Component {
       <div id="add-item-form">
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <label className="form-label" >Name</label>
-        <input type= "text" id="name" value={this.state.name}required/>
-        <label className="form-label" id="quantity">Quantity</label>
-        <input type= "number" id="quantity" value={this.state.quantity} required />
+        <input type= "text" id="name" value={this.state.name} required/>
+        <label
+          className="form-label" id="quantity" >Quantity</label>
+        <input type= "number" id="quantity" min="1" value={this.state.quantity} required />
         <label className="form-label" >Location</label>
         <select id="currentlocation">
           {this.makeOptions()}

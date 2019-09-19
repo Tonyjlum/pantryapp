@@ -134,3 +134,7 @@ button {
   overflow-y: scroll;
   height: 75vh;
 }
+
+.small-input {
+  width: 3em;
+}

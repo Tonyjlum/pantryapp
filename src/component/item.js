@@ -6,9 +6,6 @@ class Item extends Component {
     quantity: this.props.quantity
   }
 
-  //does not force a refresh, so red css border does not kick in.
-  //update the store somehow.
-
   updateQuantity = (quantity) => {
     this.setState({quantity: quantity}, ()=>{console.log(this.state)})
   }

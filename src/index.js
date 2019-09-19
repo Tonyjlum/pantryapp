@@ -18,7 +18,7 @@ const reducer = (state = {currentLocation: 1, currentItems: [], locations: [], c
       return {...state, cart: [...state.cart, action.payload]}
     case "ADD_LOCATIONS_TO_STORE":
       return {...state, locations: action.payload}
-    case "UPDATE_CART_AFTER_DELETE":
+    case "UPDATE_CART_AFTER_CHANGE":
       return {...state, cart: action.payload}
     default:
       return state

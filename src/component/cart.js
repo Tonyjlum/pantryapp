@@ -47,7 +47,7 @@ class Cart extends Component {
       <div className= {this.state.deleted ? "low-items-box" : "items-box"}>
       {this.removeButton()}
         {!this.state.deleted && this.props.name}
-        {!this.state.deleted && <MoveItemSelectButton/>}
+        {!this.state.deleted && <MoveItemSelectButton id={this.props.id}/>}
       </div>
     )
   }
@@ -59,7 +59,7 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = {
   updateCartAfterDelete: (items) =>({
-    type: "UPDATE_CART_AFTER_DELETE", payload: items
+    type: "UPDATE_CART_AFTER_CHANGE", payload: items
   })
 }
 
