@@ -103,7 +103,6 @@
 }
 
 .current-location {
-  color: skyblue;
   font-weight: bold;
   border: 5px solid lightgrey;
   border-width: 3px;
@@ -111,6 +110,7 @@
   padding: 15px;
   border-radius: 25px;
   text-align: center;
+  background-color: skyblue
 
 }
 .blank {
